@@ -10,6 +10,13 @@ html{
     margin-right: 5%; */
 }
 
+/* title manager style */
+
+.title-section{
+    text-align: center;
+    font-size: 38px;
+}
+
 
 /* Slides */
 
@@ -71,41 +78,21 @@ img {vertical-align: middle;}
   animation-duration: 1.5s;
 }
 
-/* next, previous slidebar  */
-/* button */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-  
-  /* posisi next button */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* hover next prev button*/
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
 }
+/* end of banner */
 
-/* css responsive banner */
+/* css responsive with max widh 380px */
 @media only screen and (max-width: 380px) {
+
+    /* for title */
+    .title-section{
+        text-align: center;
+        font-size: 24px;
+    }
+
     /* nav content */
     .nav-container{
         flex-direction: column;
@@ -170,9 +157,24 @@ img {vertical-align: middle;}
     .message-us-result{
         margin-top: 10%;
     }
+
+    .message-us-section{
+        height: 780px !important;
+    }
+
+    
 }
 
+
+/* css responsive with min width 381px max widh 720px */
 @media only screen and (min-width:381px) and (max-width: 720px)  {
+    /* for title */
+    .title-section{
+        text-align: center;
+        font-size: 24px;
+    }
+
+    /* for nav */
     .nav-container{
         flex-direction: column;
         height: 90px;
@@ -223,6 +225,10 @@ img {vertical-align: middle;}
     .message-us-content{
         flex-direction: column;
         height: 480px !important;
+    }
+
+    .message-us-section{
+        height: 780px !important;
     }
 
     .message-us-result{
@@ -369,11 +375,16 @@ table>td{
     height: 30px;
 }
 
+/* result style */
 .message-us-result{
     flex:1;
     border: 1px solid;
     align-content: center;
     padding-left: 2%;
+}
+
+.message-result{
+    display: none;
 }
 
 /* Footer Sytle */

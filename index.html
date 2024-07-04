@@ -31,7 +31,7 @@
             <!-- Home Content -->
              <section class="home-section" id="home_content">
                 <header>
-                    <h1>Welcome Kenzo</h1>
+                    <h1 class="title-section">Future is Better</h1>
                 </header>
                 <content>
                     <!-- <p>a little about our services</p> -->
@@ -74,7 +74,7 @@
             <!-- Service Content -->
             <section class="service-section" id="service_content">
                 <header>
-                    <h1>Our Service</h1>
+                    <h1 class="title-section">Our Service</h1>
                 </header>
                 <content class="profile-content">
                     <div class="div-service">
@@ -101,7 +101,7 @@
             <!-- Portofilio Content -->
             <section class="our-profile-section" id="profile_content">
                 <header>
-                    <h1>Our Profile</h1>
+                    <h1 class="title-section">Our Profile</h1>
                 </header>
                 <content class="our-profile-content">
                     <!-- <div class="our-profile-icon"></div> -->
@@ -116,23 +116,25 @@
             <!-- Message Us Content -->
             <section class="message-us-section" id="messageus_content">
                 <header>
-                    <h1>Message Us</h1>
+                    <h1 class="title-section">Message Us</h1>
                 </header>
                 <content class="message-us-content">
-                    <form class="message-us-table" id="myForm" onsubmit="return validateForm()">
+                    <form class="message-us-table" id="myForm" name="myForm" onsubmit="return validateForm()">
                         <table>
                             <tr>
                                 <td>Nama</td>
                                 <td> : </td>
                                 <td> <input class="message-us-input" type="text" id="name" name="name"> </td>
-                                <td><span id="nameError" class="error"></span><br></td>
+                                
                             </tr>
+                            <tr><td colspan="3"><span id="nameError" class="error"></span><br></td></tr>
                             <tr>
                                 <td>Tanggal Lahir</td>
                                 <td> : </td>
                                 <td> <input class="message-us-input" type="date" id="birthdate" name="birthdate"> </td>
-                                <td><span id="birthdateError" class="error"></span><br></td>
+                                
                             </tr>
+                            <tr><td colspan="3"><span id="birthdateError" class="error"></span><br></td></tr>
                             <tr>
                                 <td>Jenis Kelamin</td>
                                 <td> : </td>
@@ -143,27 +145,32 @@
                                     <label for="female">Perempuan</label><br>
                                     
                                 </td>
-                                <td><span id="genderError" class="error"></span><br> </td>
+                                
                             </tr>
+                            <tr><td colspan="3"<span id="genderError" class="error"></span><br> </td></tr>
                             <tr>
                                 <td>Pesan</td>
                                 <td> : </td>
                                 <td> <textarea class="message-us-input" style="height:80px;" id="message" name="message"></textarea></td>
-                                <td><span id="messageError" class="error"></span><br></td>
+                                
                             </tr>
+                            <tr><td colspan="3"><span id="messageError" class="error"></span><br></td></tr>
                             <tr><td>&nbsp;</td></tr>
                             <tr>
-                                <td colspan="3"><button class="message-us-submit">Submit</button></td>
+                                <td colspan="3"><button class="message-us-submit" id="btnSubmit" name="btnSubmit">Submit</button></td>
                             </tr>
                         </table>
                     </form>
 
                     <div class="message-us-result">
-                        <h3>Halo :</h3>
-                        <p><strong>Nama:</strong> <span id="submittedName"></span></p>
-                        <p><strong>Tanggal Lahir:</strong> <span id="submittedBirthdate"></span></p>
-                        <p><strong>Jenis Kelamin:</strong> <span id="submittedGender"></span></p>
-                        <p><strong>Pesan:</strong> <span id="submittedMessage"></span></p>
+                        <div class="message-result" id="formResult" name="formResult">
+                          <h3>Terima Kasih Telah Mengirimkan Pesan</h3>
+                          <p><strong>Nama:</strong> <span id="submittedName"></span></p>
+                          <p><strong>Tanggal Lahir:</strong> <span id="submittedBirthdate"></span></p>
+                          <p><strong>Jenis Kelamin:</strong> <span id="submittedGender"></span></p>
+                          <p><strong>Pesan:</strong> <span id="submittedMessage"></span></p>
+                        </div>
+                        
                     </div>
 
                 </content>
@@ -178,6 +185,85 @@
     </body>
 
     <script>
+      let slideIndex = 0;
+      showSlides();
+  
+      function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("my-slides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 3000); // Change image every 3 seconds
+      }
+  
+      document.getElementById('myForm').addEventListener('submit', function(event) {
+          event.preventDefault();  // Prevent the form from submitting the traditional way
+  
+          var name = document.getElementById('name').value;
+          var birthdate = document.getElementById('birthdate').value;
+          var gender = document.querySelector('input[name="gender"]:checked');
+          var message = document.getElementById('message').value;
+          var isValid = true;
+  
+          // Validasi Nama
+          if (name === '') {
+              document.getElementById('nameError').textContent = 'Nama harus diisi';
+              isValid = false;
+          } else {
+              document.getElementById('nameError').textContent = '';
+          }
+  
+          // Validasi Tanggal Lahir
+          if (birthdate === '') {
+              document.getElementById('birthdateError').textContent = 'Tanggal lahir harus diisi';
+              isValid = false;
+          } else {
+              document.getElementById('birthdateError').textContent = '';
+          }
+  
+          // Validasi Jenis Kelamin
+          if (!gender) {
+              document.getElementById('genderError').textContent = 'Jenis kelamin harus dipilih';
+              isValid = false;
+          } else {
+              document.getElementById('genderError').textContent = '';
+          }
+  
+          // Validasi Pesan
+          if (message === '') {
+              document.getElementById('messageError').textContent = 'Pesan harus diisi';
+              isValid = false;
+          } else {
+              document.getElementById('messageError').textContent = '';
+          }
+  
+          // Jika semua valid, tampilkan data yang sudah diinput
+          if (isValid) {
+              document.getElementById('submittedName').textContent = name;
+              document.getElementById('submittedBirthdate').textContent = birthdate;
+              document.getElementById('submittedGender').textContent = gender.value === 'male' ? 'Laki-laki' : 'Perempuan';
+              document.getElementById('submittedMessage').textContent = message;
+  
+              // Tampilkan area yang menunjukkan data yang sudah diinput
+              document.getElementById('formResult').style.display = 'block';
+          } 
+          // else{
+          //     document.getElementById('formResult').style.display = 'none';
+          // }
+        });
+    </script>
+  
+
+    <!-- <script>
         let slideIndex = 0;
         showSlides();
         //function untuk mengganti banner yang diaktifkan
@@ -200,6 +286,8 @@
         </script>
 
 <script>
+    document.getElementById("myForm").addEventListener('submit', validateForm);
+
     function validateForm() {
       var name = document.getElementById('name').value;
       var birthdate = document.getElementById('birthdate').value;
@@ -252,5 +340,7 @@
 
       return isValid;
     }
-  </script>
+
+    
+  </script> -->
 </html>
