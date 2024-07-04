@@ -10,13 +10,9 @@
     </head>
     <body class="body-class">
         <header class="nav-container">
-
+            <!-- nav bar -->
             <a href="http://www.rex.co.id" target="_blank"><img src="assets/LOGO REX.png" class="ourlogo-icon"></a>
             <nav>
-                <!-- <a href="#home_content">Home</a>
-                <a href="#office_content">Office</a>
-                <a href="#profile_content">Profile</a>
-                <a href="#messageus_content">Message Us</a> -->
                 <button onclick="window.location.href='#home_content'">Home</button>
                 <button onclick="window.location.href='#service_content'">Service</button>
                 <button onclick="window.location.href='#profile_content'">Profile</button>
@@ -34,9 +30,6 @@
                     <h1 class="title-section">Future is Better</h1>
                 </header>
                 <content>
-                    <!-- <p>a little about our services</p> -->
-                    <!-- <div class="myBanner"></div> -->
-
                     <div class="slideshow-container">
 
                         <!-- banner slider -->
@@ -76,6 +69,7 @@
                 <header>
                     <h1 class="title-section">Our Service</h1>
                 </header>
+                <!-- menampilkan service -->
                 <content class="profile-content">
                     <div class="div-service">
                         <a href="http://www.rex.co.id" target="_blank"><img src="assets/regular.png" class="icon-service"></a>
@@ -103,8 +97,8 @@
                 <header>
                     <h1 class="title-section">Our Profile</h1>
                 </header>
+                <!-- menampilkan data perusahaan -->
                 <content class="our-profile-content">
-                    <!-- <div class="our-profile-icon"></div> -->
                     <a href="http://www.rex.co.id" target="_blank"><img src="assets/aboutus.png" class="our-profile-icon"></a>
                     <article class="our-profile-article">
                         PT Royal Express Indonesia (REX) memfokuskan layanannya sebagai perusahaan jasa pengiriman dokumen dan paket melalui transportasi udara, laut, dan darat dengan tujuan domestik dan juga internasional. Dalam memberikan pelayanannya, REX selalu menempatkan kepuasan pelanggan sebagai prioritas dengan berusaha memenuhi semua kebutuhan pelanggan dengan baik. Untuk bisa meraih sasaran tersebut, REX didukung oleh sumber daya manusia yang handal dan armada yang memadai.
@@ -118,6 +112,7 @@
                 <header>
                     <h1 class="title-section">Message Us</h1>
                 </header>
+                <!-- menampilkan form message -->
                 <content class="message-us-content">
                     <form class="message-us-table" id="myForm" name="myForm" onsubmit="return validateForm()">
                         <table>
@@ -162,6 +157,7 @@
                         </table>
                     </form>
 
+                    <!-- menampilkan result -->
                     <div class="message-us-result">
                         <div class="message-result" id="formResult" name="formResult">
                           <h3>Terima Kasih Telah Mengirimkan Pesan</h3>
@@ -183,164 +179,4 @@
         </footer>
         
     </body>
-
-    <script>
-      let slideIndex = 0;
-      showSlides();
-  
-      function showSlides() {
-          let i;
-          let slides = document.getElementsByClassName("my-slides");
-          let dots = document.getElementsByClassName("dot");
-          for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";  
-          }
-          slideIndex++;
-          if (slideIndex > slides.length) {slideIndex = 1}    
-          for (i = 0; i < dots.length; i++) {
-              dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex-1].style.display = "block";  
-          dots[slideIndex-1].className += " active";
-          setTimeout(showSlides, 3000); // Change image every 3 seconds
-      }
-  
-      document.getElementById('myForm').addEventListener('submit', function(event) {
-          event.preventDefault();  // Prevent the form from submitting the traditional way
-  
-          var name = document.getElementById('name').value;
-          var birthdate = document.getElementById('birthdate').value;
-          var gender = document.querySelector('input[name="gender"]:checked');
-          var message = document.getElementById('message').value;
-          var isValid = true;
-  
-          // Validasi Nama
-          if (name === '') {
-              document.getElementById('nameError').textContent = 'Nama harus diisi';
-              isValid = false;
-          } else {
-              document.getElementById('nameError').textContent = '';
-          }
-  
-          // Validasi Tanggal Lahir
-          if (birthdate === '') {
-              document.getElementById('birthdateError').textContent = 'Tanggal lahir harus diisi';
-              isValid = false;
-          } else {
-              document.getElementById('birthdateError').textContent = '';
-          }
-  
-          // Validasi Jenis Kelamin
-          if (!gender) {
-              document.getElementById('genderError').textContent = 'Jenis kelamin harus dipilih';
-              isValid = false;
-          } else {
-              document.getElementById('genderError').textContent = '';
-          }
-  
-          // Validasi Pesan
-          if (message === '') {
-              document.getElementById('messageError').textContent = 'Pesan harus diisi';
-              isValid = false;
-          } else {
-              document.getElementById('messageError').textContent = '';
-          }
-  
-          // Jika semua valid, tampilkan data yang sudah diinput
-          if (isValid) {
-              document.getElementById('submittedName').textContent = name;
-              document.getElementById('submittedBirthdate').textContent = birthdate;
-              document.getElementById('submittedGender').textContent = gender.value === 'male' ? 'Laki-laki' : 'Perempuan';
-              document.getElementById('submittedMessage').textContent = message;
-  
-              // Tampilkan area yang menunjukkan data yang sudah diinput
-              document.getElementById('formResult').style.display = 'block';
-          } 
-          // else{
-          //     document.getElementById('formResult').style.display = 'none';
-          // }
-        });
-    </script>
-  
-
-    <!-- <script>
-        let slideIndex = 0;
-        showSlides();
-        //function untuk mengganti banner yang diaktifkan
-        function showSlides() {
-          let i;
-          let slides = document.getElementsByClassName("my-slides"); //mengambil elemen by nama class
-          let dots = document.getElementsByClassName("dot");
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-          }
-          slideIndex++;
-          if (slideIndex > slides.length) {slideIndex = 1}    
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex-1].style.display = "block";  
-          dots[slideIndex-1].className += " active";
-          setTimeout(showSlides, 3000); //otomatis berganti dalam 3 detik
-        }
-        </script>
-
-<script>
-    document.getElementById("myForm").addEventListener('submit', validateForm);
-
-    function validateForm() {
-      var name = document.getElementById('name').value;
-      var birthdate = document.getElementById('birthdate').value;
-      var gender = document.querySelector('input[name="gender"]:checked');
-      var message = document.getElementById('message').value;
-      var isValid = true;
-
-      // Validasi Nama
-      if (name === '') {
-        document.getElementById('nameError').textContent = 'Nama harus diisi';
-        isValid = false;
-      } else {
-        document.getElementById('nameError').textContent = '';
-      }
-
-      // Validasi Tanggal Lahir
-      if (birthdate === '') {
-        document.getElementById('birthdateError').textContent = 'Tanggal lahir harus diisi';
-        isValid = false;
-      } else {
-        document.getElementById('birthdateError').textContent = '';
-      }
-
-      // Validasi Jenis Kelamin
-      if (!gender) {
-        document.getElementById('genderError').textContent = 'Jenis kelamin harus dipilih';
-        isValid = false;
-      } else {
-        document.getElementById('genderError').textContent = '';
-      }
-
-      // Validasi Pesan
-      if (message === '') {
-        document.getElementById('messageError').textContent = 'Pesan harus diisi';
-        isValid = false;
-      } else {
-        document.getElementById('messageError').textContent = '';
-      }
-
-      // Jika semua valid, tampilkan data yang sudah diinput
-      if (isValid) {
-        document.getElementById('submittedName').textContent = name;
-        document.getElementById('submittedBirthdate').textContent = birthdate;
-        document.getElementById('submittedGender').textContent = gender.value === 'male' ? 'Laki-laki' : 'Perempuan';
-        document.getElementById('submittedMessage').textContent = message;
-
-        // Tampilkan area yang menunjukkan data yang sudah diinput
-        document.getElementById('submittedData').style.display = 'block';
-      }
-
-      return isValid;
-    }
-
-    
-  </script> -->
 </html>

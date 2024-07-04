@@ -4,12 +4,6 @@ html{
     font-family: "Courier New", Courier, monospace;
 }
 
-/* Body Style */
-.body-class{
-    /* margin-left: 5%;
-    margin-right: 5%; */
-}
-
 /* title manager style */
 
 .title-section{
@@ -18,7 +12,7 @@ html{
 }
 
 
-/* Slides */
+/* start banner / Slides */
 
 .my-slides {
     display: none;
@@ -100,10 +94,11 @@ img {vertical-align: middle;}
         padding-top: 5%;
     }
 
+    /* for banner */
     .text {font-size: 11px}
     .banner-image{max-width: 100%; max-height: 200px;}
 
-    /* for service */
+    /* for service / profile*/
     .icon-service{
         max-width: 120px;
         max-height: 120px;
@@ -181,11 +176,11 @@ img {vertical-align: middle;}
         padding-top: 5%;
     }
 
-    /* for banner */
+    /* for banner / slide*/
     .text {font-size: 11px}
     .banner-image{max-width: 100%; max-height: 360px;}
 
-    /* for service */
+    /* for service / profile */
     .icon-service{
         max-width: 140px;
         max-height: 140px;
@@ -389,11 +384,9 @@ table>td{
 
 /* Footer Sytle */
 .my-footer{
-    /* border: 1px solid; */
     font-size: 10px;
     text-align: center;
     margin: 2%;
-    /* text-decoration: overline underline; */
 }
 
 /* error validator message */
