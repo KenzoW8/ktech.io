@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation with Displaying Submitted Data</title>
+<style>
+  .error {
+    color: red;
+  }
+  #submittedData {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    display: none; /* Mulai dengan menyembunyikan area submittedData */
+  }
+</style>
+</head>
+<body>
+  <h2>Form Validation</h2>
+  <form id="myForm">
+    <label for="name">Nama:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <span id="nameError" class="error"></span><br>
+
+    <label for="birthdate">Tanggal Lahir:</label><br>
+    <input type="date" id="birthdate" name="birthdate"><br>
+    <span id="birthdateError" class="error"></span><br>
+
+    <label>Jenis Kelamin:</label><br>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Laki-laki</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Perempuan</label><br>
+    <span id="genderError" class="error"></span><br>
+
+    <label for="message">Pesan:</label><br>
+    <textarea id="message" name="message" rows="4"></textarea><br>
+    <span id="messageError" class="error"></span><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id="submittedData">
+    <h3>Data yang Anda masukkan:</h3>
+    <p><strong>Nama:</strong> <span id="submittedName"></span></p>
+    <p><strong>Tanggal Lahir:</strong> <span id="submittedBirthdate"></span></p>
+    <p><strong>Jenis Kelamin:</strong> <span id="submittedGender"></span></p>
+    <p><strong>Pesan:</strong> <span id="submittedMessage"></span></p>
+  </div>
+
+  <script>
+    // Fungsi untuk menampilkan data yang disimpan di localStorage saat halaman dimuat
+    window.onload = function() {
+      var submittedName = localStorage.getItem('submittedName');
+      var submittedBirthdate = localStorage.getItem('submittedBirthdate');
+      var submittedGender = localStorage.getItem('submittedGender');
+      var submittedMessage = localStorage.getItem('submittedMessage');
+
+      if (submittedName && submittedBirthdate && submittedGender && submittedMessage) {
+        document.getElementById('submittedName').textContent = submittedName;
+        document.getElementById('submittedBirthdate').textContent = submittedBirthdate;
+        document.getElementById('submittedGender').textContent = submittedGender;
+        document.getElementById('submittedMessage').textContent = submittedMessage;
+        document.getElementById('submittedData').style.display = 'block'; // Tampilkan area submittedData
+      }
+    };
+
+    // Event listener untuk form submission
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Menghentikan perilaku default pengiriman formulir
+
+      // Panggil fungsi untuk validasi dan menampilkan data
+      validateAndDisplayData();
+    });
+
+    function validateAndDisplayData() {
+      var name = document.getElementById('name').value;
+      var birthdate = document.getElementById('birthdate').value;
+      var gender = document.querySelector('input[name="gender"]:checked');
+      var message = document.getElementById('message').value;
+      var isValid = true;
+
+      // Validasi Nama
+      if (name === '') {
+        document.getElementById('nameError').textContent = 'Nama harus diisi';
+        isValid = false;
+      } else {
+        document.getElementById('nameError').textContent = '';
+      }
+
+      // Validasi Tanggal Lahir
+      if (birthdate === '') {
+        document.getElementById('birthdateError').textContent = 'Tanggal lahir harus diisi';
+        isValid = false;
+      } else {
+        document.getElementById('birthdateError').textContent = '';
+      }
+
+      // Validasi Jenis Kelamin
+      if (!gender) {
+        document.getElementById('genderError').textContent = 'Jenis kelamin harus dipilih';
+        isValid = false;
+      } else {
+        document.getElementById('genderError').textContent = '';
+      }
+
+      // Validasi Pesan
+      if (message === '') {
+        document.getElementById('messageError').textContent = 'Pesan harus diisi';
+        isValid = false;
+      } else {
+        document.getElementById('messageError').textContent = '';
+      }
+
+      // Jika semua valid, simpan data ke localStorage dan tampilkan di area submittedData
+      if (isValid) {
+        localStorage.setItem('submittedName', name);
+        localStorage.setItem('submittedBirthdate', birthdate);
+        localStorage.setItem('submittedGender', gender.value === 'male' ? 'Laki-laki' : 'Perempuan');
+        localStorage.setItem('submittedMessage', message);
+
+        // Tampilkan data yang disimpan di localStorage
+        document.getElementById('submittedName').textContent = name;
+        document.getElementById('submittedBirthdate').textContent = birthdate;
+        document.getElementById('submittedGender').textContent = gender.value === 'male' ? 'Laki-laki' : 'Perempuan';
+        document.getElementById('submittedMessage').textContent = message;
+
+        // Tampilkan area yang menunjukkan data yang sudah diinput
+        document.getElementById('submittedData').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+/* html style */
+
+html{
+    font-family: "Courier New", Courier, monospace;
+}
+
+/* Body Style */
+.body-class{
+    /* margin-left: 5%;
+    margin-right: 5%; */
+}
+
+
+/* Slides */
+
+.my-slides {
+    display: none;
+}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  width:100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #7a7575;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.number-text {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.banner-image{
+    width: 100%;
+    height: 578px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+/* next, previous slidebar  */
+/* button */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* posisi next button */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* hover next prev button*/
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* css responsive banner */
+@media only screen and (max-width: 380px) {
+    /* nav content */
+    .nav-container{
+        flex-direction: column;
+        height: 90px;
+        padding-top: 5%;
+    }
+
+    .text {font-size: 11px}
+    .banner-image{max-width: 100%; max-height: 200px;}
+
+    /* for service */
+    .icon-service{
+        max-width: 120px;
+        max-height: 120px;
+        border: 1px solid;
+        border-radius: 100%;
+        
+        
+    }
+    .div-service{
+        text-align: center;
+        font-size: 16px !important;
+    }
+
+    .service-section{
+        height: 800px !important;
+        padding-bottom: 10%;
+    }
+
+    .profile-content{
+        flex-direction: column;
+        justify-content: space-around !important;
+        
+    }
+
+    .our-profile-content{
+        flex-direction: column;
+        justify-content: space-around !important;
+        
+    }
+
+    .our-profile-section{
+        height: 720px !important;
+        padding-bottom: 10%;
+    }
+
+    .our-profile-icon{
+        width: 180px !important;
+        height: 180px !important;
+    }
+
+    .our-profile-article{
+        width: 100% !important;
+    }
+
+    /* message us */
+    .message-us-content{
+        flex-direction: column;
+        height: 480px !important;
+    }
+
+    .message-us-result{
+        margin-top: 10%;
+    }
+}
+
+@media only screen and (min-width:381px) and (max-width: 720px)  {
+    .nav-container{
+        flex-direction: column;
+        height: 90px;
+        padding-top: 5%;
+    }
+
+    /* for banner */
+    .text {font-size: 11px}
+    .banner-image{max-width: 100%; max-height: 360px;}
+
+    /* for service */
+    .icon-service{
+        max-width: 140px;
+        max-height: 140px;
+        border: 1px solid;
+        border-radius: 100%;
+    }
+    .div-service{
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .service-section{
+        height: 900px !important;
+        margin-bottom: 10%;
+    }
+
+    .our-profile-content{
+        flex-direction: column;
+        justify-content: space-around !important;
+        height: 720px !important;
+    }
+
+    .our-profile-section{
+        height: 720px;
+    }
+
+    .our-profile-icon{
+        height: 120px;
+        width: 120px;
+    }
+
+    .profile-content{
+        flex-direction: column;
+    }
+
+    /* message us */
+    .message-us-content{
+        flex-direction: column;
+        height: 480px !important;
+    }
+
+    .message-us-result{
+        margin-top: 10%;
+    }
+
+    .message-us-table{
+        align-self: center;
+    }
+
+}
+
+/* Main Style */
+.main-class{
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+/* Nav Style */
+.ourlogo-icon{
+    height: 40px;
+    width: 70px;
+    border: none;
+
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3%;
+    margin-right:3%;
+}
+
+nav>button:hover{
+    background-color: #fbff00;
+    color: black;
+    padding: 9px;
+    border-radius: 70%;
+}
+
+nav>button{
+    background-color: white;
+    color: black;
+    padding: 7px;
+    border: none;
+}
+
+/* Home Style */
+.my-banner{
+    height: 578px;
+    width: 100%;
+    border: 1px solid;
+    display: flex;
+    
+}
+
+
+/* Service Style */
+
+.service-section{
+    height: 700px;
+}
+
+.profile-content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.div-service{
+    text-align: center;
+    font-size: 20px;
+}
+
+.icon-service{
+    width: 160px;
+    height: 160px;
+    border: 1px solid;
+    border-radius: 100%;
+}
+
+/* Profile Style */
+.our-profile-section{
+    height: 720px;
+}
+
+.our-profile-icon{
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    border-radius: 90%;
+}
+
+.our-profile-article{
+    width: 80%;
+    margin-left:2%;
+    margin-right:2%;
+    text-align: justify;
+}
+
+.our-profile-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top:1%;
+    margin-bottom: 1%;
+    align-items: center;
+    height: 100%;
+}
+
+/* Message Us */
+.message-us-section{
+    height: 578px;
+}
+
+.message-us-content{
+    display: flex;
+    margin-bottom: 5%;
+    height: 360px;
+}
+
+.message-us-table{
+    display: flex;
+    flex:1;
+    align-items: center;
+}
+
+table>td{
+    width: 100%;
+}
+
+.message-us-input{
+    width: 100%;
+    height: 20px;
+}
+
+.message-us-submit{
+    width: 100%;
+    text-align: center;
+    height: 30px;
+}
+
+.message-us-result{
+    flex:1;
+    border: 1px solid;
+    align-content: center;
+    padding-left: 2%;
+}
+
+/* Footer Sytle */
+.my-footer{
+    /* border: 1px solid; */
+    font-size: 10px;
+    text-align: center;
+    margin: 2%;
+    /* text-decoration: overline underline; */
+}
+
+/* error validator message */
+.error {
+    color: red;
+    font-size: 10px;
+    margin-left: 2%;
+    text-align: justify;
+}
